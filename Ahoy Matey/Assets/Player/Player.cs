@@ -12,9 +12,17 @@ public class Player : NetworkBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public override void OnStartLocalPlayer() {
+        //If local camera, enable camera
+        //Camera component of camera disabled default
+        Camera cam = GetComponentInChildren<Camera>();
+        cam.enabled = true;
+
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (!isLocalPlayer) {
             return;
         }
